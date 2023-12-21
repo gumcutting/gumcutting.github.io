@@ -8,18 +8,10 @@ function fetchRssFeed() {
       var parser = new DOMParser();
       var xmlDoc = parser.parseFromString(data, 'text/xml');
 
-      
-	  
-	  
-	  
-	  
-	  // Extract items from the RSS feed
+      // Extract items from the RSS feed
       var items = xmlDoc.querySelectorAll('item');
 
      
-
-
-
 // Display each item
       var rssFeedElement = document.getElementById('rss-feed');
       items.forEach(item => {
@@ -43,11 +35,6 @@ function fetchRssFeed() {
       rssFeedElement.innerHTML = '<p>Error fetching RSS feed</p>';
     });
 }
-
-
-
-
-
 // Load RSS feed items when the page is loaded
 fetchRssFeed();
 
@@ -64,6 +51,9 @@ function fetchBomRssFeed() {
   fetch(rssFeedURL)
     .then(response => response.json())
     .then(data => {
+      // Log the fetched data to the console for debugging
+      console.log('Fetched data:', data);
+
       // Extract items from the converted JSON response
       var items = data.items;
 
@@ -85,19 +75,15 @@ function fetchBomRssFeed() {
       });
     })
     .catch(error => {
+      // Log the error to the console for debugging
       console.error('Error fetching BOM RSS feed:', error);
       var rssFeedElement = document.getElementById('rss-feed2');
       rssFeedElement.innerHTML = '<p>Error fetching BOM RSS feed</p>';
     });
 }
 
-
-
-
-
 // Load BOM RSS feed items when the page is loaded
 fetchBomRssFeed();
-
 
 
 
@@ -121,11 +107,6 @@ api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}
     .then(data => {
       var temperature = data.main.temp;
       var description = data.weather[0].description;
-
-
-
-
-
 
 // Display weather information
       var weatherElement = document.getElementById('weather-info');
