@@ -78,6 +78,9 @@ ul {
 .button-list-item5 {
       display: none;
     }
+.button-list-item6 {
+      display: none;
+    }
 	
 	
 
@@ -157,17 +160,29 @@ ul {
     width: 100%;
     max-width: 200px; /* Set a maximum width for the buttons */
     margin: 0 auto; /* Center the buttons horizontally */
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     margin-bottom: 10px; /* Add margin between buttons */
     background-color: #343434; /* Choose your preferred background color */
     color: #fff; /* Choose your preferred text color */
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
 }
-
+ button:hover{
+  background-color: #343434;
+  transform: scale(1.2); 
+ }
+ 
+  .button a {
+    color: #fff; 
+    text-decoration: none; 
+  }
+   
+  
+  
+  
 .button-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(00px, 1fr)); /* Create a grid layout with a minimum width of 200px */
