@@ -213,7 +213,8 @@ ul {
 .button-list-item4,
 .button-list-item5,
 .button-list-item6,
-.button-list-item7, {
+.button-list-item7,
+.button-list-item8, {
     display: none; /* Hide all button-list-item elements initially */
 }
 
