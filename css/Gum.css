@@ -35,6 +35,7 @@ h1 {
 
 #logo {
   max-width: 150px; /* Adjust the maximum width of your logo */
+  min-width: 70px;
   padding: 1em;
   
 }
