@@ -30,8 +30,7 @@ section {
 h1 {
   
   flex-grow: 1; /* Allow h1 to grow and take available space */
-  margin-left:150px;
-}
+ }
 
 #logo {
   max-width: 150px; /* Adjust the maximum width of your logo */
