@@ -184,7 +184,7 @@ function toggleButtons(buttonClass) {
       var searchResults = document.getElementById("search-results");
 
       // Add an event listener for the input event on the search bar
-      searchBar.addEventListener("input", function () {
+    searchBar.addEventListener("input", function () {
         // Get the search query from the input
         var query = searchBar.value.toLowerCase();
 
