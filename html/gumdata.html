@@ -1,0 +1,78 @@
+<?php
+
+echo "Connected successfully";
+// Database credentials
+$servername = "localhost";
+$username = "root";
+$password = "mysql";
+$dbname = "gumcutting";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Fetch data from the table
+$sql = "SELECT * FROM tree_locations";
+$result = $conn->query($sql);
+
+// Check if the query was successful
+if ($result === false) {
+    die("Error executing the query: " . $conn->error);
+}
+
+// Process the fetched data
+if ($result->num_rows > 0) {
+    // Output data of each row
+    while ($row = $result->fetch_assoc()) {
+        echo "ID: " . $row["id"] . " - Latitude: " . $row["latitude"] . " - Longitude: " . $row["longitude"] . "<br>";
+    }
+} else {
+    echo "No records found";
+}
+
+// Close the database connection
+$conn->close();
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree Locations</title>
+</head>
+
+<body>
+
+    <h2>Tree Locations</h2>
+
+    <?php
+    // Check if there are rows in the result
+    if ($result->num_rows > 0) {
+        // Output data in a table
+        echo "<table border='1'>";
+        echo "<tr><th>ID</th><th>Latitude</th><th>Longitude</th><th>Species</th><th>Height</th><th>Diameter</th><th>Health Status</th></tr>";
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr>";
+            echo "<td>" . $row["id"] . "</td>";
+            echo "<td>" . $row["latitude"] . "</td>";
+            echo "<td>" . $row["longitude"] . "</td>";
+            echo "<td>" . $row["species"] . "</td>";
+            echo "<td>" . $row["height"] . "</td>";
+            echo "<td>" . $row["diameter"] . "</td>";
+            echo "<td>" . $row["health_status"] . "</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+    } else {
+        echo "No results found.";
+    }
+    ?>
+
+</body>
+
+</html>
