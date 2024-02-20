@@ -322,45 +322,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
- // Function to fetch and display fire danger rating data
-        function fetchFireDangerRating() {
-            var xmlFileURL = 'fireDangerRating.xml'; 
-
-            fetch(xmlFileURL)
-                .then(response => response.text())
-                .then(data => {
-                    var parser = new DOMParser();
-                    var xmlDoc = parser.parseFromString(data, 'text/xml');
-
-                    // Extract data from the XML
-                    var locations = xmlDoc.querySelectorAll('location');
-
-                    // Display the fire danger rating for each location
-                    var fireDangerContainer = document.getElementById('fireDangerContainer');
-                    fireDangerContainer.innerHTML = '<h2>Fire Danger Rating</h2>';
-                    locations.forEach(location => {
-                        var name = location.getAttribute('name');
-                        var rating = location.querySelector('rating').textContent;
-                        var description = location.querySelector('description').textContent;
-
-                        var locationElement = document.createElement('div');
-                        locationElement.innerHTML = `
-                            <h3>${name}</h3>
-                            <p><strong>Rating:</strong> ${rating}</p>
-                            <p><strong>Description:</strong> ${description}</p>
-                        `;
-                        fireDangerContainer.appendChild(locationElement);
-                    });
-                })
-                .catch(error => {
-                    console.error('Error fetching fire danger rating data:', error);
-                    var fireDangerContainer = document.getElementById('fireDangerContainer');
-                    fireDangerContainer.innerHTML = '<p>Error fetching fire danger rating data</p>';
-                });
-        }
-
-        // Load fire danger rating data when the page is loaded
-        fetchFireDangerRating();
 
 
 
